@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+     EDIT THE PAGE TITLE (shows in the browser tab) HERE:
+     ============================================================ -->
+<title>Samir Mallick — Computational Resources</title>
+<meta name="description" content="Curated resources for computational drug discovery and protein research.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     COLOR & TYPE SETTINGS — change the whole look from here.
+     ============================================================ */
+  :root{
+    --paper:#f7f4ec;        /* page background */
+    --ink:#1b1d1c;          /* main text */
+    --muted:#6b6f6b;        /* secondary text */
+    --accent:#0f5e54;       /* links, lines, highlights */
+    --accent-soft:#0f5e5414;/* faint accent tint */
+    --card:#fffdf8;         /* card background */
+    --line:#dcd8cc;         /* borders */
+    --display:"Fraunces", Georgia, serif;
+    --body:"Spectral", Georgia, serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+
+  /* ---------- top navigation ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(247,244,236,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px;margin:0 auto;padding:18px 28px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  }
+  .brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em;color:var(--ink)}
+  .nav-links{display:flex;gap:22px;flex-wrap:wrap}
+  .nav-links a{color:var(--muted);font-size:.95rem;letter-spacing:.02em;transition:color .2s}
+  .nav-links a:hover{color:var(--accent)}
+
+  /* ---------- hero / header ---------- */
+  .hero{max-width:1040px;margin:0 auto;padding:72px 28px 36px}
+  .eyebrow{
+    font-family:var(--body);text-transform:uppercase;letter-spacing:.22em;
+    font-size:.78rem;color:var(--accent);margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,6vw,3.8rem);
+    line-height:1.05;letter-spacing:-.02em;max-width:18ch;
+  }
+  .hero p.lede{margin-top:22px;max-width:60ch;color:var(--muted);font-size:1.12rem;font-weight:300}
+
+  /* ---------- link directory ---------- */
+  main{max-width:1040px;margin:0 auto;padding:40px 28px 90px}
+  .category{margin-top:54px;scroll-margin-top:90px}
+  .category h2{
+    font-family:var(--display);font-weight:600;font-size:1.55rem;letter-spacing:-.01em;
+    padding-bottom:10px;border-bottom:2px solid var(--accent);display:inline-block;
+  }
+  .links{
+    margin-top:22px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;
+  }
+  .links a{
+    display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;color:var(--ink);font-size:1rem;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .links a:hover{
+    transform:translateY(-2px);border-color:var(--accent);
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .links a span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px;font-weight:300}
+  .links a:hover span{color:var(--accent)}
+
+  /* ---------- footer ---------- */
+  footer{
+    max-width:1040px;margin:0 auto;padding:34px 28px 60px;
+    border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION BAR — edit your name and the menu items.
+     The href="#id" jumps to the matching section below.
+     ============================================================ -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Samir Mallick</div>
+    <nav class="nav-links">
+      <a href="#structure">Structure</a>
+      <a href="#modeling">Modeling</a>
+      <a href="#databases">Databases</a>
+      <a href="#admet">ADMET</a>
+      <a href="#activity">Activity</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — your headline and one-line intro.
+     ============================================================ -->
+<section class="hero">
+  <p class="eyebrow">Computational Drug Discovery</p>
+  <h1>A working desk of tools for protein &amp; small-molecule research.</h1>
+  <p class="lede">A curated, regularly updated set of servers and databases I keep on hand.
+  Replace this text with your own description, or delete it entirely.</p>
+</section>
+
+<main>
+
+  <!-- ============================================================
+       HOW TO ADD A LINK:
+       Copy one <a> block, paste it, then change the URL,
+       the label, and the small <span> note (optional).
+
+       HOW TO ADD A CATEGORY:
+       Copy a whole <section class="category"> block and edit
+       its id, its <h2>, and its links.
+       ============================================================ -->
+
+  <section class="category" id="structure">
+    <h2>Protein Structure</h2>
+    <div class="links">
+      <a href="https://www.rcsb.org/" target="_blank" rel="noopener">PDB<span>Protein Data Bank</span></a>
+      <a href="https://www.uniprot.org/" target="_blank" rel="noopener">UniProt<span>Sequence & function</span></a>
+      <a href="https://swissmodel.expasy.org/" target="_blank" rel="noopener">SWISS-MODEL</a>
+      <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">AlphaFold</a>
+      <a href="https://modbase.compbio.ucsf.edu/" target="_blank" rel="noopener">ModBase</a>
+      <a href="https://www.ebi.ac.uk/pdbe/" target="_blank" rel="noopener">PDBe</a>
+      <a href="https://www.ncbi.nlm.nih.gov/structure" target="_blank" rel="noopener">MMDB</a>
+      <a href="http://www.cathdb.info/" target="_blank" rel="noopener">CATH</a>
+      <a href="https://scop.berkeley.edu/" target="_blank" rel="noopener">SCOP</a>
+      <a href="https://www.ebi.ac.uk/biomodels/" target="_blank" rel="noopener">BioModels</a>
+      <a href="https://www.emdataresource.org/" target="_blank" rel="noopener">EMDB</a>
+    </div>
+  </section>
+
+  <section class="category" id="modeling">
+    <h2>Homology Modeling</h2>
+    <div class="links">
+      <a href="https://swissmodel.expasy.org/" target="_blank" rel="noopener">SWISS-MODEL</a>
+      <a href="https://salilab.org/modeller/" target="_blank" rel="noopener">Modeller</a>
+      <a href="http://www.sbg.bio.ic.ac.uk/phyre2/" target="_blank" rel="noopener">Phyre2</a>
+      <a href="https://zhanggroup.org/I-TASSER/" target="_blank" rel="noopener">I-TASSER</a>
+      <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener">AlphaFold</a>
+      <a href="https://robetta.bakerlab.org/submit.php" target="_blank" rel="noopener">RoseTTAFold</a>
+    </div>
+  </section>
+
+  <section class="category" id="databases">
+    <h2>Chemical Databases</h2>
+    <div class="links">
+      <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubChem</a>
+      <a href="https://www.ebi.ac.uk/chembl/" target="_blank" rel="noopener">ChEMBL</a>
+      <a href="https://zinc15.docking.org/" target="_blank" rel="noopener">ZINC</a>
+      <a href="https://go.drugbank.com/" target="_blank" rel="noopener">DrugBank</a>
+      <a href="http://www.chemspider.com/" target="_blank" rel="noopener">ChemSpider</a>
+      <a href="https://clue.io/repo" target="_blank" rel="noopener">Drug Repurposing Hub</a>
+      <a href="https://www.kegg.jp/" target="_blank" rel="noopener">KEGG</a>
+      <a href="https://bidd.group/NPASS/" target="_blank" rel="noopener">NPASS<span>Natural products</span></a>
+    </div>
+  </section>
+
+  <section class="category" id="admet">
+    <h2>Drug-Likeness &amp; Toxicity</h2>
+    <div class="links">
+      <a href="https://www.swissadme.ch/" target="_blank" rel="noopener">SwissADME</a>
+      <a href="https://admetmesh.scbdd.com/" target="_blank" rel="noopener">ADMETlab 2.0</a>
+      <a href="https://www.molsoft.com/mprop/" target="_blank" rel="noopener">Molsoft Drug-Likeness</a>
+      <a href="https://tox-new.charite.de/protox_II/" target="_blank" rel="noopener">ProTox-II</a>
+      <a href="http://biosig.unimelb.edu.au/pkcsm/" target="_blank" rel="noopener">pkCSM</a>
+      <a href="https://toxtree.sourceforge.io/" target="_blank" rel="noopener">Toxtree</a>
+      <a href="https://www.vegahub.eu/" target="_blank" rel="noopener">VEGA QSAR</a>
+    </div>
+  </section>
+
+  <section class="category" id="activity">
+    <h2>Activity &amp; Target Prediction</h2>
+    <div class="links">
+      <a href="http://www.way2drug.com/passonline/" target="_blank" rel="noopener">PASS Online</a>
+      <a href="http://www.swisstargetprediction.ch/" target="_blank" rel="noopener">SwissTargetPrediction</a>
+      <a href="https://www.bindingdb.org/" target="_blank" rel="noopener">BindingDB</a>
+      <a href="http://db.idrblab.net/ttd/" target="_blank" rel="noopener">Therapeutic Target DB</a>
+      <a href="http://stitch.embl.de/" target="_blank" rel="noopener">STITCH</a>
+      <a href="http://targetnet.scbdd.com/" target="_blank" rel="noopener">TargetNet</a>
+      <a href="http://sea.bkslab.org/" target="_blank" rel="noopener">SEA</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER — edit your name / contact.
+     ============================================================ -->
+<footer>
+  <span>© <span id="year"></span> Samir Mallick · University of Pittsburgh</span>
+  <span><a href="mailto:you@example.com">you@example.com</a></span>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
