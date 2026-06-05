@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================
+     EDIT THE PAGE TITLE (shows in the browser tab) HERE:
+     ============================================================ -->
+<title>Samir Mallick — Biophysical Characterization of Peptides</title>
+<meta name="description" content="Curated resources for Experimental & computational protein research.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     COLOR & TYPE SETTINGS — change the whole look from here.
+     ============================================================ */
+  :root{
+    --paper:#f7f4ec;        /* page background */
+    --ink:#1b1d1c;          /* main text */
+    --muted:#6b6f6b;        /* secondary text */
+    --accent:#0f5e54;       /* links, lines, highlights */
+    --accent-soft:#0f5e5414;/* faint accent tint */
+    --card:#fffdf8;         /* card background */
+    --line:#dcd8cc;         /* borders */
+    --display:"Fraunces", Georgia, serif;
+    --body:"Spectral", Georgia, serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+
+  /* ---------- top navigation ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(247,244,236,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px;margin:0 auto;padding:18px 28px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  }
+  .brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em;color:var(--ink)}
+  .nav-links{display:flex;gap:22px;flex-wrap:wrap}
+  .nav-links a{color:var(--muted);font-size:.95rem;letter-spacing:.02em;transition:color .2s}
+  .nav-links a:hover{color:var(--accent)}
+
+  /* ---------- hero / header (TWO COLUMNS: text left, 3D viewer right) ---------- */
+  .hero{
+    max-width:1040px;margin:0 auto;padding:60px 28px 40px;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--body);text-transform:uppercase;letter-spacing:.22em;
+    font-size:.78rem;color:var(--accent);margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);
+    line-height:1.05;letter-spacing:-.02em;
+  }
+  .hero p.lede{margin-top:22px;max-width:50ch;color:var(--muted);font-size:1.12rem;font-weight:300}
+
+  /* the 3D structure box on the right */
+  .hero-viewer .viewer_3Dmoljs{
+    position:relative;width:100%;height:400px;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);
+  }
+  .viewer-caption{margin-top:10px;font-size:.82rem;color:var(--muted);font-weight:300;text-align:center}
+
+  /* stack the two columns on narrow screens / phones */
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:32px;padding-top:44px}
+    .hero-viewer .viewer_3Dmoljs{height:340px}
+  }
+
+  /* ---------- link directory ---------- */
+  main{max-width:1040px;margin:0 auto;padding:20px 28px 90px}
+  .category{margin-top:54px;scroll-margin-top:90px}
+  .category h2{
+    font-family:var(--display);font-weight:600;font-size:1.55rem;letter-spacing:-.01em;
+    padding-bottom:10px;border-bottom:2px solid var(--accent);display:inline-block;
+  }
+  .links{
+    margin-top:22px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;
+  }
+  .links a{
+    display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;color:var(--ink);font-size:1rem;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .links a:hover{
+    transform:translateY(-2px);border-color:var(--accent);
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .links a span{display:block;font-size:.78rem;color:var(--muted);margin-top:3px;font-weight:300}
+  .links a:hover span{color:var(--accent)}
+
+  /* ---------- footer ---------- */
+  footer{
+    max-width:1040px;margin:0 auto;padding:34px 28px 60px;
+    border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION BAR — edit your name and the menu items.
+     IMPORTANT: each href="#xxx" below MUST exactly match an
+     id="xxx" on a <section> further down. IDs cannot contain
+     spaces, "&", or capital-letter mismatches.
+     ============================================================ -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Horne Laboratory</div>
+    <nav class="nav-links">
+      <a href="#seth-horne">Seth Horne Lab</a>
+      <a href="#synthesis">Synthesis and Purification</a>
+      <a href="#characterization">Biophysical Characterization</a>
+      <a href="#computational">Computational Study</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — text on the LEFT, rotating 3D structure on the RIGHT.
+     To change the molecule: edit data-pdb="1A3N" below.
+     ============================================================ -->
+<section class="hero">
+
+  <!-- LEFT: your headline and intro -->
+  <div class="hero-text">
+    <p class="eyebrow">Biophysical Characterization of Peptide and Miniprotein Design</p>
+    <h1>A Working Desk of Tools for Protein Research.</h1>
+    <p class="lede">A curated, regularly updated set of experimental databases I keep on hand.</p>
+  </div>
+
+  <!-- RIGHT: the 3D protein viewer -->
+  <div class="hero-viewer">
+    <div class="viewer_3Dmoljs"
+         data-pdb="1A3N"
+         data-backgroundalpha="0"
+         data-style="cartoon:color=spectrum"
+         data-spin="axis:y;speed:1"></div>
+    <p class="viewer-caption">Human hemoglobin (PDB 1A3N) — drag to rotate, scroll to zoom.</p>
+  </div>
+
+</section>
+
+<main>
+
+  <!-- ============================================================
+       HOW TO ADD A LINK:
+       Copy one <a> block, paste it, then change the URL,
+       the label, and the small <span> note (optional).
+
+       HOW TO ADD A CATEGORY:
+       Copy a whole <section class="category"> block and edit
+       its id, its <h2>, and its links.
+       REMEMBER: if you add a section, also add a matching
+       <a href="#its-id"> in the navigation bar above, using
+       the SAME id (no spaces, no "&").
+       ============================================================ -->
+
+  <section class="category" id="seth-horne">
+    <h2>Seth Horne Lab</h2>
+    <div class="links">
+      <a href="https://sites.pitt.edu/~horne/" target="_blank" rel="noopener">Seth Horne Lab<span>Seth Horne Lab</span></a>
+      <a href="https://pitt-my.sharepoint.com/personal/horne_pitt_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhorne%5Fpitt%5Fedu%2FDocuments%2FHorne%20Lab%20Shared%20Group%20Documents&viewid=a9650348%2Ddf68%2D4f7c%2Da1f4%2D9e69e489e0bb&OR=Teams%2DHL&CT=1736793847015&ovuser=9ef9f489%2De0a0%2D4eeb%2D87cc%2D3a526112fd0d%2CSAM1202%40pitt%2Eedu&TeamsCID=274c7756%2D0788%2D4c5b%2D9e8e%2De2e8878f1d23&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNjA0MzAxOTIxNiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D" target="_blank" rel="noopener">One Drive<span>One Drive</span></a>
+      <a href="https://pitt.sharepoint.com/:x:/r/sites/HorneLab/_layouts/15/doc2.aspx?sourcedoc=%7BF83442CA-A596-4EA0-8CFF-B01EEDD49A31%7D&file=Horne%20Group%20Inventory.xlsx&action=default&mobileredirect=true" target="_blank" rel="noopener">Inventory<span>Seth Horne Lab Inventory</span></a>
+      <a href="https://scholar.google.com/citations?user=yB9NCbMAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar<span>Seth Horne Google Scholar</span></a>
+      <a href="https://public.era.nih.gov/commonsplus/public/login.era?TARGET=https%3A%2F%2Fpublic.era.nih.gov%3A443%2Fcommonsplus%2Fhome.era%3Fmenu_itemPath%3D600" target="_blank" rel="noopener">eCommons-NIH<span>NIH Funding</span></a>
+    </div>
+  </section>
+
+  <section class="category" id="synthesis">
+    <h2>Synthesis and Purification</h2>
+    <div class="links">
+      <a href="https://www.rcsb.org/" target="_blank" rel="noopener">RCSB PDB Home Page</a>
+      <a href="https://www.ebi.ac.uk/thornton-srv/databases/pdbsum/" target="_blank" rel="noopener">PDBsum</a>
+      <a href="https://prospector.ucsf.edu/prospector/mshome.htm" target="_blank" rel="noopener">Protein Prospector</a>
+      <a href="https://www.bachem.com/knowledge-center/peptide-calculator/" target="_blank" rel="noopener">Peptide Calculator</a>
+      <a href="https://faces.ccrc.uga.edu/" target="_blank" rel="noopener">Auto Synthesizer Book</a>
+      <a href="https://drive.google.com/file/d/1HABsHlWECCK_QpMxagyskaow3m8zm_bU/view?usp=sharing" target="_blank" rel="noopener">Auto Synthesizer Protocol</a>
+      <a href="https://drive.google.com/file/d/1cqfAvwvK1ufNnYbCBghlUU-eAfyQ5zuj/view?usp=sharing" target="_blank" rel="noopener">MALDI-MS Protocol</a>
+      <a href="https://drive.google.com/drive/folders/1U24ELZ3D7BiOavr66doG7NhreV9okuWc?usp=sharing" target="_blank" rel="noopener">Refractive Index Protocol</a>
+      <a href="https://drive.google.com/drive/folders/1CC-kAiHr8h6WB64F3kjeym4_EvWFuEr2?usp=sharing" target="_blank" rel="noopener">UV Protocol</a>
+    </div>
+  </section>
+
+  <section class="category" id="characterization">
+    <h2>Biophysical Characterization</h2>
+    <div class="links">
+      <a href="https://phbuffers.org/BuffferCalc/Buffer.html" target="_blank" rel="noopener">pH Buffer Calculator</a>
+      <a href="https://drive.google.com/drive/folders/18KPrpRlZ2Pdu1f4FVk7aC2d4rddgUMYN?usp=sharing" target="_blank" rel="noopener">Circular Dichroism Protocol</a>
+      <a href="https://drive.google.com/drive/folders/1CC-kAiHr8h6WB64F3kjeym4_EvWFuEr2?usp=sharing" target="_blank" rel="noopener">UV Protocol</a>
+      <a href="https://drive.google.com/file/d/13iyJJNhitOCELek12RLq7lWOsZ4-6MKg/view?usp=sharing" target="_blank" rel="noopener">Stopped Flow Protocol</a>
+      <a href="https://drive.google.com/file/d/1xgg2pMfFyMH_yLNqOhaQC5x6ZBNOvcz7/view?usp=sharing" target="_blank" rel="noopener">NMR Protocol</a>
+      <a href="https://www.bruker.com/protected/en/services/software-downloads/nmr/software/topspin500.html" target="_blank" rel="noopener">NMR_TopSpin</a>
+    </div>
+  </section>
+
+  <section class="category" id="computational">
+    <h2>Computational Study</h2>
+    <div class="links">
+      <a href="https://www.cgl.ucsf.edu/chimerax/download.html" target="_blank" rel="noopener">UCSF ChimeraX</a>
+      <a href="https://www.pymol.org/" target="_blank" rel="noopener">PyMol</a>
+      <a href="https://manual.gromacs.org/" target="_blank" rel="noopener">GROMACS</a>
+      <a href="https://alphafoldserver.com/" target="_blank" rel="noopener">AlphaFold</a>
+      <a href="https://docs.rosettacommons.org/docs/latest/Rosetta-Servers/" target="_blank" rel="noopener">Rosetta Server</a>
+      <a href="https://my.schrodinger.com/login?ec=302&startURL=%2F" target="_blank" rel="noopener">Schrodinger</a>
+      <a href="https://avogadro.cc/index.html" target="_blank" rel="noopener">Avogadro</a>
+      <a href="https://westpa.github.io/westpa/" target="_blank" rel="noopener">WESTPA</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     FOOTER — edit your name / contact.
+     ============================================================ -->
+<footer>
+  <span>© <span id="year"></span> Samir Mallick · University of Pittsburgh</span>
+  <span><a href="mailto:1samirmallick1@gmail.com">1samirmallick1@gmail.com</a></span>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS — keep these at the very bottom.
+     The first line loads the 3D molecular viewer (3Dmol.js).
+     ============================================================ -->
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
